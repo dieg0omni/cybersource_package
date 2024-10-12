@@ -1,0 +1,6 @@
+package com.examplecybersource.example
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}

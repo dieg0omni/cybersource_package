@@ -1,0 +1,24 @@
+name: base_project_oms
+
+## Descomentar linea siguiente si se usa FVM,
+## no es requerido, los comandos de melos con flutter ya aputan al fvm
+## sdkPath: .fvm/flutter_sdk
+
+packages:
+  - core
+
+## Iniciar la app con "melos bs", ejecutara todos los comandos necesarios para generar los archivos
+
+command:
+  bootstrap:
+    hooks:
+      post: dart pub run build_runner build --delete-conflicting-outputs
+
+scripts:
+  init-app: melos clean-all && melos get-oms && melos gen-oms
+
+  gen-core: melos exec --scope="core" dart run build_runner build --delete-conflicting-outputs
+
+  clean-all:
+    run: melos exec flutter clean
+    description: Clean all packages
