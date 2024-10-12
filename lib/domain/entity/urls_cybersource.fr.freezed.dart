@@ -20,8 +20,10 @@ UrlsCybersource _$UrlsCybersourceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UrlsCybersource {
-  String get urlBase => throw _privateConstructorUsedError;
-  String get urlResourceProcessPayments => throw _privateConstructorUsedError;
+  String get urlProtocol => throw _privateConstructorUsedError;
+  String get urlHost => throw _privateConstructorUsedError;
+  UrlsCybersourceResource get urlResourceProcessPayments =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +37,12 @@ abstract class $UrlsCybersourceCopyWith<$Res> {
           UrlsCybersource value, $Res Function(UrlsCybersource) then) =
       _$UrlsCybersourceCopyWithImpl<$Res, UrlsCybersource>;
   @useResult
-  $Res call({String urlBase, String urlResourceProcessPayments});
+  $Res call(
+      {String urlProtocol,
+      String urlHost,
+      UrlsCybersourceResource urlResourceProcessPayments});
+
+  $UrlsCybersourceResourceCopyWith<$Res> get urlResourceProcessPayments;
 }
 
 /// @nodoc
@@ -51,19 +58,33 @@ class _$UrlsCybersourceCopyWithImpl<$Res, $Val extends UrlsCybersource>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? urlBase = null,
+    Object? urlProtocol = null,
+    Object? urlHost = null,
     Object? urlResourceProcessPayments = null,
   }) {
     return _then(_value.copyWith(
-      urlBase: null == urlBase
-          ? _value.urlBase
-          : urlBase // ignore: cast_nullable_to_non_nullable
+      urlProtocol: null == urlProtocol
+          ? _value.urlProtocol
+          : urlProtocol // ignore: cast_nullable_to_non_nullable
+              as String,
+      urlHost: null == urlHost
+          ? _value.urlHost
+          : urlHost // ignore: cast_nullable_to_non_nullable
               as String,
       urlResourceProcessPayments: null == urlResourceProcessPayments
           ? _value.urlResourceProcessPayments
           : urlResourceProcessPayments // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UrlsCybersourceResource,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UrlsCybersourceResourceCopyWith<$Res> get urlResourceProcessPayments {
+    return $UrlsCybersourceResourceCopyWith<$Res>(
+        _value.urlResourceProcessPayments, (value) {
+      return _then(_value.copyWith(urlResourceProcessPayments: value) as $Val);
+    });
   }
 }
 
@@ -75,7 +96,13 @@ abstract class _$$UrlsCybersourceImplCopyWith<$Res>
       __$$UrlsCybersourceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String urlBase, String urlResourceProcessPayments});
+  $Res call(
+      {String urlProtocol,
+      String urlHost,
+      UrlsCybersourceResource urlResourceProcessPayments});
+
+  @override
+  $UrlsCybersourceResourceCopyWith<$Res> get urlResourceProcessPayments;
 }
 
 /// @nodoc
@@ -89,18 +116,23 @@ class __$$UrlsCybersourceImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? urlBase = null,
+    Object? urlProtocol = null,
+    Object? urlHost = null,
     Object? urlResourceProcessPayments = null,
   }) {
     return _then(_$UrlsCybersourceImpl(
-      urlBase: null == urlBase
-          ? _value.urlBase
-          : urlBase // ignore: cast_nullable_to_non_nullable
+      urlProtocol: null == urlProtocol
+          ? _value.urlProtocol
+          : urlProtocol // ignore: cast_nullable_to_non_nullable
+              as String,
+      urlHost: null == urlHost
+          ? _value.urlHost
+          : urlHost // ignore: cast_nullable_to_non_nullable
               as String,
       urlResourceProcessPayments: null == urlResourceProcessPayments
           ? _value.urlResourceProcessPayments
           : urlResourceProcessPayments // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UrlsCybersourceResource,
     ));
   }
 }
@@ -109,19 +141,23 @@ class __$$UrlsCybersourceImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UrlsCybersourceImpl implements _UrlsCybersource {
   const _$UrlsCybersourceImpl(
-      {required this.urlBase, required this.urlResourceProcessPayments});
+      {required this.urlProtocol,
+      required this.urlHost,
+      required this.urlResourceProcessPayments});
 
   factory _$UrlsCybersourceImpl.fromJson(Map<String, dynamic> json) =>
       _$$UrlsCybersourceImplFromJson(json);
 
   @override
-  final String urlBase;
+  final String urlProtocol;
   @override
-  final String urlResourceProcessPayments;
+  final String urlHost;
+  @override
+  final UrlsCybersourceResource urlResourceProcessPayments;
 
   @override
   String toString() {
-    return 'UrlsCybersource(urlBase: $urlBase, urlResourceProcessPayments: $urlResourceProcessPayments)';
+    return 'UrlsCybersource(urlProtocol: $urlProtocol, urlHost: $urlHost, urlResourceProcessPayments: $urlResourceProcessPayments)';
   }
 
   @override
@@ -129,7 +165,9 @@ class _$UrlsCybersourceImpl implements _UrlsCybersource {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UrlsCybersourceImpl &&
-            (identical(other.urlBase, urlBase) || other.urlBase == urlBase) &&
+            (identical(other.urlProtocol, urlProtocol) ||
+                other.urlProtocol == urlProtocol) &&
+            (identical(other.urlHost, urlHost) || other.urlHost == urlHost) &&
             (identical(other.urlResourceProcessPayments,
                     urlResourceProcessPayments) ||
                 other.urlResourceProcessPayments ==
@@ -138,8 +176,8 @@ class _$UrlsCybersourceImpl implements _UrlsCybersource {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, urlBase, urlResourceProcessPayments);
+  int get hashCode => Object.hash(
+      runtimeType, urlProtocol, urlHost, urlResourceProcessPayments);
 
   @JsonKey(ignore: true)
   @override
@@ -158,19 +196,185 @@ class _$UrlsCybersourceImpl implements _UrlsCybersource {
 
 abstract class _UrlsCybersource implements UrlsCybersource {
   const factory _UrlsCybersource(
-          {required final String urlBase,
-          required final String urlResourceProcessPayments}) =
+          {required final String urlProtocol,
+          required final String urlHost,
+          required final UrlsCybersourceResource urlResourceProcessPayments}) =
       _$UrlsCybersourceImpl;
 
   factory _UrlsCybersource.fromJson(Map<String, dynamic> json) =
       _$UrlsCybersourceImpl.fromJson;
 
   @override
-  String get urlBase;
+  String get urlProtocol;
   @override
-  String get urlResourceProcessPayments;
+  String get urlHost;
+  @override
+  UrlsCybersourceResource get urlResourceProcessPayments;
   @override
   @JsonKey(ignore: true)
   _$$UrlsCybersourceImplCopyWith<_$UrlsCybersourceImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+UrlsCybersourceResource _$UrlsCybersourceResourceFromJson(
+    Map<String, dynamic> json) {
+  return _UrlsCybersourceResource.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UrlsCybersourceResource {
+  String get urlResource => throw _privateConstructorUsedError;
+  String get typeRequest => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UrlsCybersourceResourceCopyWith<UrlsCybersourceResource> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UrlsCybersourceResourceCopyWith<$Res> {
+  factory $UrlsCybersourceResourceCopyWith(UrlsCybersourceResource value,
+          $Res Function(UrlsCybersourceResource) then) =
+      _$UrlsCybersourceResourceCopyWithImpl<$Res, UrlsCybersourceResource>;
+  @useResult
+  $Res call({String urlResource, String typeRequest});
+}
+
+/// @nodoc
+class _$UrlsCybersourceResourceCopyWithImpl<$Res,
+        $Val extends UrlsCybersourceResource>
+    implements $UrlsCybersourceResourceCopyWith<$Res> {
+  _$UrlsCybersourceResourceCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? urlResource = null,
+    Object? typeRequest = null,
+  }) {
+    return _then(_value.copyWith(
+      urlResource: null == urlResource
+          ? _value.urlResource
+          : urlResource // ignore: cast_nullable_to_non_nullable
+              as String,
+      typeRequest: null == typeRequest
+          ? _value.typeRequest
+          : typeRequest // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UrlsCybersourceResourceImplCopyWith<$Res>
+    implements $UrlsCybersourceResourceCopyWith<$Res> {
+  factory _$$UrlsCybersourceResourceImplCopyWith(
+          _$UrlsCybersourceResourceImpl value,
+          $Res Function(_$UrlsCybersourceResourceImpl) then) =
+      __$$UrlsCybersourceResourceImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String urlResource, String typeRequest});
+}
+
+/// @nodoc
+class __$$UrlsCybersourceResourceImplCopyWithImpl<$Res>
+    extends _$UrlsCybersourceResourceCopyWithImpl<$Res,
+        _$UrlsCybersourceResourceImpl>
+    implements _$$UrlsCybersourceResourceImplCopyWith<$Res> {
+  __$$UrlsCybersourceResourceImplCopyWithImpl(
+      _$UrlsCybersourceResourceImpl _value,
+      $Res Function(_$UrlsCybersourceResourceImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? urlResource = null,
+    Object? typeRequest = null,
+  }) {
+    return _then(_$UrlsCybersourceResourceImpl(
+      urlResource: null == urlResource
+          ? _value.urlResource
+          : urlResource // ignore: cast_nullable_to_non_nullable
+              as String,
+      typeRequest: null == typeRequest
+          ? _value.typeRequest
+          : typeRequest // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UrlsCybersourceResourceImpl implements _UrlsCybersourceResource {
+  const _$UrlsCybersourceResourceImpl(
+      {required this.urlResource, required this.typeRequest});
+
+  factory _$UrlsCybersourceResourceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UrlsCybersourceResourceImplFromJson(json);
+
+  @override
+  final String urlResource;
+  @override
+  final String typeRequest;
+
+  @override
+  String toString() {
+    return 'UrlsCybersourceResource(urlResource: $urlResource, typeRequest: $typeRequest)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UrlsCybersourceResourceImpl &&
+            (identical(other.urlResource, urlResource) ||
+                other.urlResource == urlResource) &&
+            (identical(other.typeRequest, typeRequest) ||
+                other.typeRequest == typeRequest));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, urlResource, typeRequest);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UrlsCybersourceResourceImplCopyWith<_$UrlsCybersourceResourceImpl>
+      get copyWith => __$$UrlsCybersourceResourceImplCopyWithImpl<
+          _$UrlsCybersourceResourceImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UrlsCybersourceResourceImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UrlsCybersourceResource implements UrlsCybersourceResource {
+  const factory _UrlsCybersourceResource(
+      {required final String urlResource,
+      required final String typeRequest}) = _$UrlsCybersourceResourceImpl;
+
+  factory _UrlsCybersourceResource.fromJson(Map<String, dynamic> json) =
+      _$UrlsCybersourceResourceImpl.fromJson;
+
+  @override
+  String get urlResource;
+  @override
+  String get typeRequest;
+  @override
+  @JsonKey(ignore: true)
+  _$$UrlsCybersourceResourceImplCopyWith<_$UrlsCybersourceResourceImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

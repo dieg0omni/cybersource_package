@@ -68,7 +68,7 @@ final apiClientNormalProvider = Provider<ApiClient>.internal(
 
 typedef ApiClientNormalRef = ProviderRef<ApiClient>;
 String _$cybersourceDatasourceSourceHash() =>
-    r'56a84908d51d8363010d23aae4c9816b1c66fe10';
+    r'36641f0b1c0c01c363131bd541c621e4d1230189';
 
 /// See also [cybersourceDatasourceSource].
 @ProviderFor(cybersourceDatasourceSource)
@@ -116,5 +116,22 @@ final processPaymentUseCaseProvider = Provider<ProcessPaymentUseCase>.internal(
 );
 
 typedef ProcessPaymentUseCaseRef = ProviderRef<ProcessPaymentUseCase>;
+String _$cybersourceConfigurationHash() =>
+    r'4a0c78829dad3550774904476b5a169446953a2a';
+
+/// See also [cybersourceConfiguration].
+@ProviderFor(cybersourceConfiguration)
+final cybersourceConfigurationProvider =
+    Provider<CybersourceConfiguration>.internal(
+  cybersourceConfiguration,
+  name: r'cybersourceConfigurationProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$cybersourceConfigurationHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef CybersourceConfigurationRef = ProviderRef<CybersourceConfiguration>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
